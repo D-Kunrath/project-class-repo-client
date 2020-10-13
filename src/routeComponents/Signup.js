@@ -39,7 +39,7 @@ function Signup() {
       event.preventDefault();
 
       const response = await api.post('/signup', state);
-      console.error(response);
+      console.log(response);
 
       setLoadingState({...loadingState, loading: false});
 
@@ -50,7 +50,6 @@ function Signup() {
     }
   }
 
-  console.log(state);
   return (
     <div className="wrapper">
       <SideBarPublic />
