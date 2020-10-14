@@ -17,9 +17,3 @@ return(
 }
 
 export default Logout;
-
-
-
-
-
-    
