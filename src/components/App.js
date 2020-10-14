@@ -59,7 +59,6 @@ function App() {
             <Route exact path="/login" render={() => {
               return <Login setUserState={setState} />} 
             }/>
-            {/* <Route path='/profile' component={Profile} /> */}
             <Route>
               <Redirect to='/' />
             </Route>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 
 import NavBar from "./NavBar";
@@ -10,6 +10,7 @@ import api from "../apis";
 
 function Login(props) {
   const history = useHistory();
+  let mounted = false;
 
   const [state, setState] = useState({
     email: '',
@@ -20,6 +21,17 @@ function Login(props) {
     loading: false,
     error: ''
   });
+
+  useEffect(() => {
+    mounted = true;
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      mounted = false;
+    }
+  }, []);
+
 
   const handleChange = (event) => {
     const temp = { ...state };
@@ -33,21 +45,20 @@ function Login(props) {
     try {
       const { data } = await api.post('/login', state)
       console.log('data ->', data)
-      await props.setUserState({ user: {...data.user }, token: data.token });
+      props.setUserState({ user: {...data.user }, token: data.token });
 
       localStorage.setItem('loggedInUser', JSON.stringify({
         user: { ...data.user },
         token: data.token,
       }))
 
-      await setLoadingState({...loadingState, loading: false})
-      history.push('/profile');
+      if (mounted) {
+        setLoadingState({...loadingState, loading: false})
+        history.push('/profile');
+      }
     } catch (err) {
       console.error(err)
       setLoadingState({...loadingState, loading: false})
-    }
-    return async function cleanup() {
-      await setLoadingState({...loadingState, loading: false})
     }
   }
 
