@@ -1,13 +1,10 @@
 import React from "react";
 
 import NavBar from "./NavBar";
-import SideBarPublic from "../components/SideBarPublic";
 
 function Home() {
   return (
-    <div className="wrapper">
-      <SideBarPublic />
-      {/* Page Content Holder  */}
+
       <div id="content">
         <NavBar pageName="Home" />
 
@@ -70,7 +67,7 @@ function Home() {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </div>
-    </div>
+
   );
 }
 
