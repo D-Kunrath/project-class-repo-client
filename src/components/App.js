@@ -44,17 +44,20 @@ function App() {
     <div className="App">
       <BrowserRouter>
         {state.user._id ? (
-          <Switch>
+          
           <div className="wrapper">
             <SideBarPrivete />
+            <Switch>
+
             <PrivateRoute exact path="/logout" user={state} component={Logout} setUserState={setState} />
 
             <PrivateRoute exact path='/profile' user={state} component={Profile} />
             <Route>
               <Redirect to='/profile' />
             </Route>
-            </div>
+            
           </Switch>
+          </div>
         ) : (
           <div className="wrapper">
           <SideBarPublic />
