@@ -1,11 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
+
 import NavBar from "./NavBar";
 
 import SideBarPublic from "../components/SideBarPublic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import api from "../apis";
 
-function Login() {
+function Login(props) {
+  const history = useHistory();
+
+  const [state, setState] = useState({
+    email: '',
+    password: '',
+  });
+
+  const [loadingState, setLoadingState] = useState({
+    loading: false,
+    error: ''
+  });
+
+  const handleChange = (event) => {
+    const temp = { ...state };
+    temp[event.currentTarget.name] = event.currentTarget.value;
+    setState(temp);
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setLoadingState({...loadingState, loading: true});
+    try {
+      const { data } = await api.post('/login', state)
+      console.log('data ->', data)
+      await props.setUserState({ user: {...data.user }, token: data.token });
+
+      localStorage.setItem('loggedInUser', JSON.stringify({
+        user: { ...data.user },
+        token: data.token,
+      }))
+
+      await setLoadingState({...loadingState, loading: false})
+      history.push('/profile');
+    } catch (err) {
+      console.error(err)
+      setLoadingState({...loadingState, loading: false})
+    }
+    return async function cleanup() {
+      await setLoadingState({...loadingState, loading: false})
+    }
+  }
+
   return (
     <div className="wrapper">
       <SideBarPublic />
@@ -14,14 +59,17 @@ function Login() {
         <NavBar pageName="Login" />
 
         <div>
-          <form className="text-center border border-light p-5" action="#!">
+          <form className="text-center border border-light p-5" onSubmit={handleSubmit}>
             <div className="control pt-2">
               <label htmlFor="email">E-mail</label>
               <input
                 type="email"
                 id="email"
+                name='email'
                 className="form-control"
                 placeholder="E-mail"
+                value={state.email}
+                onChange={handleChange}
               />
             </div>
             <div className="control pt-2">
@@ -29,9 +77,11 @@ function Login() {
               <input
                 type="password"
                 id="password"
+                name='password'
                 className="form-control"
                 placeholder="Password"
-                aria-describedby="defaultRegisterFormPasswordHelpBlock"
+                value={state.password}
+                onChange={handleChange}
               />
             </div>
             <button
