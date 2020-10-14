@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 
 // import public components
+import SideBarPublic from "./SideBarPublic"
 import Home from "../routeComponents/Home";
 import About from "../routeComponents/About";
 import Contact from "../routeComponents/Contact";
@@ -12,7 +13,9 @@ import Login from "../routeComponents/Login";
 
 // import private components
 import PrivateRoute from '../routeComponents/private/PrivateRoute';
+import SideBarPrivete from "./SideBarPrivate"
 import Profile from '../routeComponents/private/Profile'
+import Logout from "../routeComponents/private/Logout"
 
 function App() {
   const [ state, setState ] = useState ({
@@ -35,22 +38,26 @@ function App() {
     console.log(state);
   } , [state]);
 
-  // const handleLogout = () => {
-  //   setState({user: {}, token: ''});
-  // }
+
 
   return (
     <div className="App">
       <BrowserRouter>
         {state.user._id ? (
           <Switch>
-          {console.log('switchhhhhhhh')}
+          <div className="wrapper">
+            <SideBarPrivete />
+            <PrivateRoute exact path="/logout" user={state} component={Logout} setUserState={setState} />
+
             <PrivateRoute exact path='/profile' user={state} component={Profile} />
             <Route>
               <Redirect to='/profile' />
             </Route>
+            </div>
           </Switch>
         ) : (
+          <div className="wrapper">
+          <SideBarPublic />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
@@ -63,9 +70,9 @@ function App() {
               <Redirect to='/' />
             </Route>
           </Switch>
+          </div>
         )}
       </BrowserRouter>
-      APP!
     </div>
   );
 }

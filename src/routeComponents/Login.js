@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 
 import NavBar from "./NavBar";
 
-import SideBarPublic from "../components/SideBarPublic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import api from "../apis";
@@ -63,9 +62,7 @@ function Login(props) {
   }
 
   return (
-    <div className="wrapper">
-      <SideBarPublic />
-      {/* Page Content Holder  */}
+
       <div id="content">
         <NavBar pageName="Login" />
 
@@ -114,7 +111,7 @@ function Login(props) {
 
         <div className="line"></div>
       </div>
-    </div>
+
   );
 }
 export default Login;

@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import api from '../apis/index'
 import NavBar from "./NavBar";
 
-import SideBarPublic from "../components/SideBarPublic";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
@@ -51,9 +51,7 @@ function Signup() {
   }
 
   return (
-    <div className="wrapper">
-      <SideBarPublic />
-      {/* Page Content Holder  */}
+
       <div id="content">
         <NavBar pageName="Signup" />
         <div>
@@ -145,7 +143,6 @@ function Signup() {
 
         <div className="line"></div>
       </div>
-    </div>
   );
 }
 

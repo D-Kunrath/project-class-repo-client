@@ -1,13 +1,9 @@
 import React from "react";
 import NavBar from "./NavBar";
 
-import SideBarPublic from "../components/SideBarPublic";
-
 function Contact() {
   return (
-    <div className="wrapper">
-      <SideBarPublic />
-      {/* Page Content Holder  */}
+
       <div id="content">
         <NavBar pageName="Contact" />
         <h2>Contact</h2>
@@ -69,7 +65,7 @@ function Contact() {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </div>
-    </div>
+
   );
 }
 
