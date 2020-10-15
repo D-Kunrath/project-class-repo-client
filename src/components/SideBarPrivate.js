@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 function SideBarPrivate(props) {
   const [menuActive, setMenuActive] = useState(false);
 
-
-
   return (
     <>
       <nav id="sidebar" className={`${menuActive ? "active" : ""}`}>
@@ -19,7 +17,7 @@ function SideBarPrivate(props) {
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/template">Template</Link>
           </li>
           <li>
             <Link to="/classroon">Classroon</Link>

@@ -16,6 +16,7 @@ import PrivateRoute from '../routeComponents/private/PrivateRoute';
 import SideBarPrivete from "./SideBarPrivate"
 import Profile from '../routeComponents/private/Profile'
 import Logout from "../routeComponents/private/Logout"
+import Template from "../routeComponents/private/Template"
 
 function App() {
   const [ state, setState ] = useState ({
@@ -50,8 +51,8 @@ function App() {
             <Switch>
 
             <PrivateRoute exact path="/logout" user={state} component={Logout} setUserState={setState} />
-
             <PrivateRoute exact path='/profile' user={state} component={Profile} />
+            <PrivateRoute exact path='/template' user={state} component={Template} />
             <Route>
               <Redirect to='/profile' />
             </Route>
