@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../NavBar";
 import axios from "axios"
+import githubApi from '../../apis/githubApi'
 
 const Profile = () => {
   const [zen, setZen] = useState('teste')
@@ -9,10 +10,9 @@ const Profile = () => {
    
    
     const zenPromise= async ()=> {
-    const response = await axios.get("https://api.github.com/zen")
-    console.log(zen, response)
+    const response = await githubApi.get("/zen");
+    console.log(response.data)
     setZen(response.data)
-    console.log(zen, response)
    }
    zenPromise()
     
