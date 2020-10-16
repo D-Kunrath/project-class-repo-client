@@ -62,31 +62,19 @@ const Template = () => {
         <p>Class Name</p>
         <input onChange={updateName} value={formName} />
       </div>
-      <div>
-        <p>Student List</p>
-        <input onChange={updateUserName} value={userUnit} />
-        <button onClick={addUser}>Add</button>
-      </div>
-      <div>
-        <ul></ul>
-      </div>
 
-      <div>
-        <p>Repositories URLs</p>
-        <input onChange={updateUrl} value={labUnit} />
-        <button onClick={addLab}>Add</button>
-      </div>
-      <div>
-        <ul></ul>
-      </div>
-      <div>
+      <div className="d-flex justify-content-around mt-5">
         <div className="card" style={{ width: "18rem" }}>
-          <div className="card-header">Studants</div>
+          <div>
+            <input onChange={updateUserName} value={userUnit} />
+            <button onClick={addUser}>Add</button>
+          </div>
+          <div className="card-header">Students</div>
           <ul className="list-group list-group-flush">
             {userList.map((url, i) => {
               return (
                 <div key={i}>
-                  <li className="list-group-item">
+                  <li className="list-group-item d-flex justify-content-between">
                     {url}
                     <button
                       onClick={() => {
@@ -102,12 +90,16 @@ const Template = () => {
           </ul>
         </div>
         <div className="card" style={{ width: "18rem" }}>
-          <div className="card-header">Repositories URL</div>
+          <div>
+            <input onChange={updateUrl} value={labUnit} />
+            <button onClick={addLab}>Add</button>
+          </div>
+          <div className="card-header">Repository URLs</div>
           <ul className="list-group list-group-flush">
             {labList.map((url, i) => {
               return (
                 <div key={i}>
-                  <li className="list-group-item">
+                  <li className="list-group-item  d-flex justify-content-between">
                     {url}
                     <button
                       onClick={() => {
