@@ -2,7 +2,7 @@ import axios from "axios";
 import api from './index';
 
 const githubApi = axios.create({
-  baseURL: "http://api.github.com",
+  baseURL: "https://api.github.com",
 });
 
 // const loggedInUser = localStorage.getItem("loggedInUser");
@@ -17,7 +17,7 @@ const getGithubToken = async () =>{
       function (config) {
         // Do something before request is sent
           config.headers = {
-            Authorization: `Token ${githubToken.data.token}`,
+            Authorization: `Bearer ${githubToken.data.token}`,
           };
         return config;
       },
