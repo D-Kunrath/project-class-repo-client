@@ -5,9 +5,9 @@ const githubApi = axios.create({
   baseURL: "https://api.github.com",
 });
 
-// const loggedInUser = localStorage.getItem("loggedInUser");
+const loggedInUser = localStorage.getItem("loggedInUser");
 
-// const storedUser = JSON.parse(loggedInUser || '""');
+const storedUser = JSON.parse(loggedInUser || '""');
 
 const getGithubToken = async () => {
   try {
@@ -16,15 +16,11 @@ const getGithubToken = async () => {
     githubApi.interceptors.request.use(
       function (config) {
         // Do something before request is sent
-<<<<<<< HEAD
+        if (storedUser.token) {
           config.headers = {
-            Authorization: `Bearer ${githubToken.data.token}`,
+            Authorization: `Token ${githubToken.data.token}`,
           };
-=======
-        config.headers = {
-          Authorization: `Token ${githubToken.data.token}`,
-        };
->>>>>>> 674c17392df3cec08bb354522f4f4bbf5ec31c60
+        }
         return config;
       },
       function (error) {
