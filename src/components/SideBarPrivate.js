@@ -17,7 +17,7 @@ function SideBarPrivate(props) {
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/template">Template</Link>
+            <Link to="/newclassroom">New Classroom</Link>
           </li>
           <li>
             <Link to="/classroon">Classroon</Link>
