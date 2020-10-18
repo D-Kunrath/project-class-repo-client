@@ -12,7 +12,7 @@ const storedUser = JSON.parse(loggedInUser || '""');
 const getGithubToken = async () => {
   try {
     const githubToken = await api.get("/githubapi");
-    console.log("gittoken:", githubToken.data.token);
+    // console.log("gittoken:", githubToken.data.token);
     githubApi.interceptors.request.use(
       function (config) {
         // Do something before request is sent

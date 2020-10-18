@@ -20,7 +20,7 @@ function SideBarPrivate(props) {
             <Link to="/newclassroom">New Classroom</Link>
           </li>
           <li>
-            <Link to="/classroon">Classroon</Link>
+            <Link to="/classroomList">Classroom</Link>
           </li>
         </ul>
 

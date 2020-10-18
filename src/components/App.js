@@ -17,6 +17,9 @@ import SideBarPrivete from "./SideBarPrivate";
 import Profile from "../routeComponents/private/Profile";
 import Logout from "../routeComponents/private/Logout";
 import ClassroomForm from "../routeComponents/private/ClassroomForm";
+import ClassroomList from "../routeComponents/private/ClassroomList";
+import LabsList from "../routeComponents/private/LabsList";
+import LabEdit from "../routeComponents/private/LabEdit";
 
 function App() {
   const [state, setState] = useState({
@@ -66,6 +69,24 @@ function App() {
                 path="/newclassroom"
                 user={state}
                 component={ClassroomForm}
+              />
+              <PrivateRoute
+                exact
+                path="/classroomList"
+                user={state}
+                component={ClassroomList}
+              />
+              <PrivateRoute
+                exact
+                path="/labslit"
+                user={state}
+                component={LabsList}
+              />
+              <PrivateRoute
+                exact
+                path="/labedit"
+                user={state}
+                component={LabEdit}
               />
               <Route>
                 <Redirect to="/profile" />
