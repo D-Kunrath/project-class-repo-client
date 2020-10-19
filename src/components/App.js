@@ -27,8 +27,6 @@ function App() {
     token: "",
   });
 
-  const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     (async () => {
       const storedUser = JSON.parse(

@@ -33,5 +33,6 @@ const getGithubToken = async () => {
     console.error(err);
   }
 };
+getGithubToken();
 
-export default getGithubToken;
+export default githubApi;

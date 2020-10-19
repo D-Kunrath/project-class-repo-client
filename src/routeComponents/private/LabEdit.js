@@ -28,9 +28,7 @@ const LabEdit = () => {
       }
     };
     fetch();
-    const repoName = history.location.state.repo_url.split('/')
-    console.log(repoName);
-  }, []);
+  }, [id]);
 
   const updateScore = async (event, index) => {
     const newScores = [...scores];

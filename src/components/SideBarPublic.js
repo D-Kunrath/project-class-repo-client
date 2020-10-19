@@ -43,8 +43,8 @@ function SideBarPublic(props) {
         className="navbar-btn"
         style={{
           position: "relative",
-          top: 40,
-          left: 50,
+          top: 0,
+          left: 0,
           zIndex: 100,
         }}
         onClick={() => {
