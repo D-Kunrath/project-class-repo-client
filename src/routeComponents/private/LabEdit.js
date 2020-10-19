@@ -27,8 +27,9 @@ const LabEdit = () => {
         alert("Error fetch Labs list");
       }
     };
-
     fetch();
+    const repoName = history.location.state.repo_url.split('/')
+    console.log(repoName);
   }, []);
 
   const updateScore = async (event, index) => {
