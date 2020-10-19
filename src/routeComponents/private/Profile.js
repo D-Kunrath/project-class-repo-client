@@ -21,19 +21,9 @@ const Profile = () => {
   return (
     <div id="content">
       <NavBar pageName="Profile" />
-      <p>{zen}</p>
-
+      <p>Git Zen Menssage:</p>
+      <h2>{zen}</h2>
       <div className="line"></div>
-
-      <h2>Lorem Ipsum Dolor</h2>
-
-      <div className="line"></div>
-
-      <h2>Lorem Ipsum Dolor</h2>
-
-      <div className="line"></div>
-
-      <h3>Lorem Ipsum Dolor</h3>
     </div>
   );
 };
