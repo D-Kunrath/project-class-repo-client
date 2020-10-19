@@ -10,32 +10,21 @@ const Profile = () => {
   mountedRef.current = false;
 
   useEffect(() => {
-      const zenPromise = async () => {
-        const githubApi = await setGithubToken();
-        const response = await githubApi.get("/zen");
-        console.log(response.data);
-        setZen(response.data);
-      };
-      zenPromise();
+    const zenPromise = async () => {
+      const githubApi = await setGithubToken();
+      const response = await githubApi.get("/zen");
+      console.log(response.data);
+      setZen(response.data);
+    };
+    zenPromise();
   }, []);
 
   return (
     <div id="content">
       <NavBar pageName="Profile" />
-      <h2></h2>
-      <p>{zen}</p>
-
+      <p>Git Zen Menssage:</p>
+      <h2>{zen}</h2>
       <div className="line"></div>
-
-      <h2>Lorem Ipsum Dolor</h2>
-
-      <div className="line"></div>
-
-      <h2>Lorem Ipsum Dolor</h2>
-
-      <div className="line"></div>
-
-      <h3>Lorem Ipsum Dolor</h3>
     </div>
   );
 };
