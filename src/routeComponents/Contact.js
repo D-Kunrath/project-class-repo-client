@@ -1,71 +1,50 @@
 import React from "react";
 import NavBar from "./NavBar";
-
+import Linkedin from "./asset/linkedin.svg";
+import Github from "./asset/github.svg";
 function Contact() {
   return (
+    <div id="content">
+      <NavBar pageName="Contact" />
+      <h2>Contact</h2>
+      <div className="line"></div>
 
-      <div id="content">
-        <NavBar pageName="Contact" />
-        <h2>Contact</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <div className="line"></div>
-
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <div className="line"></div>
-
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <div className="line"></div>
-
-        <h3>Lorem Ipsum Dolor</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+      <div className="row">
+        <div className="col-sm-6">
+          <div className="card">
+            <div className="card-body d-flex flex-column align-items-center">
+              <h5 className="card-title">Rubem Carvalho</h5>
+              <div>
+                <img src={Linkedin} style={{ width: 60, height: 40 }} />
+                <a href="https://www.linkedin.com/in/rubem-carvalho/">
+                  /in/rubem-carvalho
+                </a>
+                <img src={Github} style={{ width: 60, height: 40 }} />
+                <a href="https://github.com/rubemdiogo">/rubemdiogo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-sm-6">
+          <div className="card">
+            <div className="card-body d-flex flex-column align-items-center">
+              <h5 className="card-title">Daniel Kunrath</h5>
+              <div>
+                <img src={Linkedin} style={{ width: 60, height: 40 }} />
+                <a href="https://www.linkedin.com/in/daniel-k-albanez/">
+                  /in/daniel-k-albanez
+                </a>
+                <img src={Github} style={{ width: 60, height: 40 }} />
+                <a href="https://github.com/D-Kunrath">/D-Kunrath</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
+      <div></div>
+      <div></div>
+      <div className="line"></div>
+    </div>
   );
 }
 
