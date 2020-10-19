@@ -5,7 +5,6 @@ const api = axios.create({
 });
 
 const loggedInUser = localStorage.getItem("loggedInUser");
-
 const storedUser = JSON.parse(loggedInUser || '""');
 
 api.interceptors.request.use(

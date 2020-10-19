@@ -3,7 +3,6 @@
 */
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -221,4 +220,11 @@ a.article, a.article:hover {
         transform: rotate(-45deg) translate(1px, -1px);
     }
 
+}
+
+.sidebar-header img {
+    width: 100%;
+    resize: scale-down;
+    border-radius: 50%;
+    border: 1px solid white;
 }
