@@ -54,7 +54,7 @@ const ClassroomList = () => {
               className={styles}
               style={{ cursor: "pointer" }}
               onClick={() => {
-                history.push("/labslit", item);
+                history.push(`/labslit/${item._id}`, item);
               }}
             >
               {item.classroom_name}

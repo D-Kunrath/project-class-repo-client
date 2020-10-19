@@ -43,9 +43,11 @@ const LabEdit = () => {
     setScores(newScores);
   };
 
-  const saveChanges = () => {
+  const saveChanges = async () => {
     try {
-      api.patch(`/repo/${id}`, scores);
+      await api.patch(`/repo/${id}`, scores);
+      const { data } = await api.get(`repo/${id}`);
+      history.push(`/labslit/${data.classroom_id}`);
     } catch (error) {
       console.error(error);
       alert("Error Saving Changes");

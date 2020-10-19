@@ -78,7 +78,7 @@ function App() {
               />
               <PrivateRoute
                 exact
-                path="/labslit"
+                path="/labslit/:id"
                 user={state}
                 component={LabsList}
               />

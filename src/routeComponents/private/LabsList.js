@@ -3,55 +3,20 @@ import NavBar from "../NavBar";
 import api from "../../apis/index";
 import { useHistory } from "react-router-dom";
 
-const LabsList = () => {
+const LabsList = (props) => {
   const history = useHistory();
   const [repoList, setRepoList] = useState([]);
 
   useEffect(() => {
-    let id;
-    if (history.location.state && history.location.state._id) {
-      id = history.location.state._id;
-    } else {
-      console.log("no _ID");
-      history.goBack();
-    }
-    console.log("id", id);
+    const classroom_id = props.match.params.id;
+    console.log(classroom_id);
     const fetch = async () => {
       try {
-        /////////////////////////////////////////////////////// lembra de mudar
-        const { data } = await api.get(`/classroom/${id}`);
-        console.log("/classroom/${id}", data);
-
-        // TODO Ajustar com DB
-        /////////////////////////////////////////
-        const mock = [
-          {
-            _id: "5f8b8d4149f9fa1e93f463dc",
-            classroom_id: "5f8a5bdbe304351d2cea0867",
-            scores: [
-              {
-                _id: "5f8a4b0538aebc19462c31cd",
-                git_user: "d-kunrath",
-                score: 0,
-                done: false,
-              },
-              {
-                _id: "5f8a4b0538aebc19462c31ce",
-                git_user: "rubemdiogo",
-                score: 0,
-                done: false,
-              },
-            ],
-            repo_url: "http://test.com.br/test", /////////////// nao está vindo da api
-            __v: 0,
-          },
-        ];
-
-        /////////////////////////////////////////////////////
-        setRepoList(mock); /// setRepoList(xxxxxxxxxxxxxxxxxxxxxxxxx);
+        const { data } = await api.get(`/repo/all/${classroom_id}`);
+        console.log("/repo/all/${id}", data);
+        setRepoList(data);
       } catch (err) {
         console.error(err);
-        alert("Error fetch Labs list");
       }
     };
 
@@ -61,7 +26,6 @@ const LabsList = () => {
   const removeRepo = async (index, id) => {
     try {
       await api.delete(`/repo/${id}`);
-
       const newClassList = [...repoList];
       newClassList.splice(index, 1);
       setRepoList(newClassList);
