@@ -1,17 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import NavBar from "../NavBar";
-import axios from "axios";
-import setGithubToken from "../../apis/githubApi";
+import githubApi from "../../apis/githubApi";
 
 const Profile = () => {
-  const [zen, setZen] = useState("teste");
+  const [zen, setZen] = useState("loading...");
 
   const mountedRef = useRef();
   mountedRef.current = false;
 
   useEffect(() => {
     const zenPromise = async () => {
-      const githubApi = await setGithubToken();
+      // const githubApi = await setGithubToken();
       const response = await githubApi.get("/zen");
       console.log(response.data);
       setZen(response.data);

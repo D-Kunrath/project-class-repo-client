@@ -1,34 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import setGithubToken from '../apis/githubApi';
+import githubApi from '../apis/githubApi';
 
 function SideBarPrivate(props) {
   const [menuActive, setMenuActive] = useState(false);
   const [gitState, setGitState] = useState({});
 
-  const loggedInUser = localStorage.getItem("loggedInUser");
-  const storedUser = JSON.parse(loggedInUser || '""');
 
   useEffect(() => {
     const gitUserPromise = async () => {
       try {
-        const githubApi = await setGithubToken();
-        const response = await githubApi.get(`/users/${storedUser.user.name}`);
-        console.log(response.data);
-        setGitState(response.data);
+        const loggedInUser = await localStorage.getItem("loggedInUser");
+        const storedUser = await JSON.parse(loggedInUser || '""');
+        if (storedUser.user !== undefined){
+          const response = await githubApi.get(`/users/${storedUser.user.name}`);
+          console.log(response.data);
+          setGitState(response.data);
+        }
       } catch (err) {
         console.error(err);
       }
     };
     gitUserPromise();
-  }, [])
+  }, []);
 
   return (
     <>
       <nav id="sidebar" className={`${menuActive ? "active" : ""}`}>
         <div className="sidebar-header">
-          <img alt='github avatar photo' src={gitState.avatar_url} />
+          <img alt='user github avatar' src={gitState.avatar_url} />
           <h3>{gitState.login}</h3>
         </div>
 

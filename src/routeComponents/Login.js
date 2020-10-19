@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from 'react-router-dom';
 
 import NavBar from "./NavBar";
@@ -9,7 +9,8 @@ import api from "../apis";
 
 function Login(props) {
   const history = useHistory();
-  let mounted = false;
+  const mounted = useRef();
+  mounted.current = false;
 
   const [state, setState] = useState({
     email: '',
@@ -22,12 +23,12 @@ function Login(props) {
   });
 
   useEffect(() => {
-    mounted = true;
+    mounted.current = true;
   }, []);
 
   useEffect(() => {
     return () => {
-      mounted = false;
+      mounted.current = false;
     }
   }, []);
 

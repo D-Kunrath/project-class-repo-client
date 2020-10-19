@@ -7,13 +7,13 @@ const LabsList = (props) => {
   const history = useHistory();
   const [repoList, setRepoList] = useState([]);
 
+  const classroom_id = props.match.params.id;
+
   useEffect(() => {
-    const classroom_id = props.match.params.id;
     console.log(classroom_id);
     const fetch = async () => {
       try {
         const { data } = await api.get(`/repo/all/${classroom_id}`);
-        console.log("/repo/all/${id}", data);
         setRepoList(data);
       } catch (err) {
         console.error(err);
@@ -21,7 +21,7 @@ const LabsList = (props) => {
     };
 
     fetch();
-  }, []);
+  }, [classroom_id]);
 
   const removeRepo = async (index, id) => {
     try {
