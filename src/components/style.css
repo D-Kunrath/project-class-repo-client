@@ -35,6 +35,7 @@ a, a:hover, a:focus {
     box-shadow: none;
     outline: none !important;
     border: none;
+    background-color: #6d7fcc !important;
 }
 
 .line {
@@ -171,22 +172,20 @@ a.article, a.article:hover {
 }
 
 #sidebarCollapse span:first-of-type {
-    transform: rotate(45deg) translate(2px, 2px);
+    transform: translate(0, -5px);
 }
-#sidebarCollapse span:nth-of-type(2) {
+/* #sidebarCollapse span:nth-of-type(2) {
     opacity: 0;
-}
+} */
 #sidebarCollapse span:last-of-type {
-    transform: rotate(-45deg) translate(1px, -1px);
+    transform: translate(0, 5px);
 }
-
 
 #sidebarCollapse.active span {
     transform: none;
     opacity: 1;
     margin: 5px auto;
 }
-
 
 /* ---------------------------------------------------
     MEDIAQUERIES
